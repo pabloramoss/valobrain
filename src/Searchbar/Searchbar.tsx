@@ -1,26 +1,20 @@
-import React, { useState } from 'react';
-import {Container, Input, Stack, IconButton, Button, Icon} from "@chakra-ui/react"
-import {Video} from "../videos/types"
-import Fuse from "fuse.js"
+import React, { useState, useContext } from 'react';
+import {Container, Input, Stack, Button} from "@chakra-ui/react"
 import { FaSearch } from 'react-icons/fa';
+import searchFuse from "../Searchbar/SearchFuse"
+import VideosContext from "../../context/VideosContext"
+import DatabaseContext from '../../context/DatabaseContext';
 
-interface Props {
-  videos: Video[]
-}
-
-const Searchbar: React.FC<Props> = ({videos})=> {
+const Searchbar: React.FC = ()=> {
   const [query, setQuery] = useState("")
-
-  const fuse = new Fuse(videos, {
-    keys: [
-      "title",
-      "description",
-    ]
-  })
+  const {videos, setVideos} = useContext(VideosContext)
+  const {database} = useContext(DatabaseContext)
 
   const handleSubmit = e => {
     e.preventDefault()
-    const searchResults = fuse.search(query)
+    const results = searchFuse(database, query)
+    setVideos(results)
+    console.log("el searchbar devuelve", videos)
     //utilizar redux o context para enviar el resultado al componente que renderiza la lista de videos
     //Debe actualizar el estado global de la variable que guarda la lista de videos como resultado de la busqueda
   }

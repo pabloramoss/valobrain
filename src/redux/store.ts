@@ -1,6 +1,15 @@
 import { createStore } from "redux"
+import {Video} from "../videos/types"
 
-const counterReducer = (state = 0, action)=> {
+const initalState = {
+  videoId: "";
+  title: "";
+  description: "";
+  thumnails: ""; //change to object later
+  publishTime: "";
+}
+
+const counterReducer = (state: Video = initalState, action)=> {
   switch (action.type) {
     case "increment":
       return state + 1;

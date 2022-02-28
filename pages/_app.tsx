@@ -1,16 +1,18 @@
 import React from "react"
 import { ChakraProvider } from '@chakra-ui/react'
 import { AppProps } from "next/app"
-import {Provider as ReduxProvider} from "react-redux"
-import store from "../src/redux/store"
+import {VideosProvider} from "../context/VideosContext"
+import {DatabaseProvider} from "../context/DatabaseContext"
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
-    <ReduxProvider store={store}>
       <ChakraProvider>
-        <Component {...pageProps} />
+        <DatabaseProvider>
+          <VideosProvider>
+            <Component {...pageProps} />
+          </VideosProvider>
+        </DatabaseProvider>
       </ChakraProvider>
-    </ReduxProvider>
   )
 }
 

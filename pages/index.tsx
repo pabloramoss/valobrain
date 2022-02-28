@@ -1,20 +1,23 @@
 import { GetStaticProps } from 'next';
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {Video} from "../src/videos/types"
 import api from './api/api';
 import {Container, Heading, Stack, Grid, Box, Input} from "@chakra-ui/react"
 import Aside from "../src/Aside/Aside"
 import Searchbar from "../src/Searchbar/Searchbar"
 import Body from "../src/Body/Body"
-import {collection, onSnapshot, query, orderBy} from "@firebase/firestore"
-import {db} from "../firebase"
+import VideosContext from "../context/VideosContext"
+import Fuse from "fuse.js";
+import {dbConnect} from "../utils/mongoose"
+/* import {collection, onSnapshot, query, orderBy} from "@firebase/firestore"
+import {db} from "../firebase" */
 
 interface Props {
-  videos: Video[];
+  database: Video[];
 }
 
-const IndexRoute: React.FC<Props> = ({videos})=> {
-  const [todos, setTodos] = useState([])
+const IndexRoute: React.FC<Props> = ()=> {
+
 
  /*  useEffect(()=>{
     const collectionRef = collection(db, "todos")
@@ -27,7 +30,6 @@ const IndexRoute: React.FC<Props> = ({videos})=> {
     return unsubscribe
   }, []) */
 
-  console.log(videos);
   return(
     <Grid 
       gridTemplateAreas={{
@@ -38,15 +40,12 @@ const IndexRoute: React.FC<Props> = ({videos})=> {
         gridTemplateColumns={{base:"60px 1fr"}} gridTemplateRows={{base: "60px 1fr"}}
       >
       <Box gridArea="header">
-        <Searchbar videos={videos} />
+        <Searchbar />
       </Box>
       <Box gridArea="aside">
         <Aside />
       </Box>
       <Stack gridArea="body">
-        <ul>
-          {todos.map(todo => <Heading key={todo.id}>{todo.title}</Heading>)}
-        </ul>
         <Body />
       </Stack>
     </Grid>
@@ -56,11 +55,12 @@ export default IndexRoute
 
 //Obtengo los videos
 export const getStaticProps: GetStaticProps = async () =>{
-  const videos = await api.mock()
+  /* const database = await api.mock() */
+  dbConnect()
 
   return {
     props: {
-      videos
+      
     }
   }
 }

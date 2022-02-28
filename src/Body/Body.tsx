@@ -2,10 +2,9 @@ import React from 'react';
 import {Heading, Stack} from "@chakra-ui/react"
 import Hero from "../Hero/Hero"
 import VideoCard from "../Body/VideoCard"
+import VideoList from './VideoList/VideoList';
 
-interface Props {}
-
-const Body: React.FC<Props> = ()=> {
+const Body = ()=> {
 
   return(
     <Stack bg='gray.800' alignItems="center">
@@ -17,6 +16,9 @@ const Body: React.FC<Props> = ()=> {
           <VideoCard />
           <VideoCard />
         </Stack>
+      </Stack>
+      <Stack>
+        <VideoList />
       </Stack>
       {`<Body />`}
     </Stack>
