@@ -20,7 +20,6 @@ const Body = ()=> {
       <Stack>
         <VideoList />
       </Stack>
-      {`<Body />`}
     </Stack>
   )
 }

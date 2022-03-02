@@ -1,7 +1,8 @@
 export interface Video {
   videoId: string;
-  title: string;
+  etag: string;
   description: string;
-  thumnails: string; //change to object later
+  thumbnails: string;
   publishTime: string;
+  title: string;
 }

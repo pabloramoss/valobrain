@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect, FormEvent, ChangeEvent } from 'react';
 import {Container, Input, Stack, Button} from "@chakra-ui/react"
 import { FaSearch } from 'react-icons/fa';
 import searchFuse from "../Searchbar/SearchFuse"
@@ -7,16 +7,14 @@ import DatabaseContext from '../../context/DatabaseContext';
 
 const Searchbar: React.FC = ()=> {
   const [query, setQuery] = useState("")
-  const {videos, setVideos} = useContext(VideosContext)
+  const {setVideos} = useContext(VideosContext)
   const {database} = useContext(DatabaseContext)
 
-  const handleSubmit = e => {
-    e.preventDefault()
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
     const results = searchFuse(database, query)
-    setVideos(results)
-    console.log("el searchbar devuelve", videos)
-    //utilizar redux o context para enviar el resultado al componente que renderiza la lista de videos
-    //Debe actualizar el estado global de la variable que guarda la lista de videos como resultado de la busqueda
+    const videosResults = results.map(result => result.item)
+    setVideos(videosResults)
   }
 
   return(
@@ -27,9 +25,9 @@ const Searchbar: React.FC = ()=> {
       w="100%"
     >
       <Container maxW="container.xl">
-        <form onSubmit={e=>handleSubmit(e)}>
+        <form onSubmit={handleSubmit}>
           <Stack direction="row">
-            <Input placeholder='Buscar' color="white" onChange={e => setQuery(e.target.value)} />
+            <Input placeholder='Buscar' type="search" color="white" value={query} onChange={(event: ChangeEvent<HTMLInputElement>) => setQuery(event.target.value)} />
             <Button aria-label='search' type='submit' colorScheme="gray" ><FaSearch /></Button>
           </Stack>
         </form>

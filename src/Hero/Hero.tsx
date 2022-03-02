@@ -10,9 +10,9 @@ const Hero: React.FC = ()=> {
   return(
     <Stack h="350px" w="100%" bg="white">
       <QuerySearchProvider>
-        <AgentFilter />
+        {/* <AgentFilter />
         <MapFilter />
-        <SideFilter />
+        <SideFilter /> */}
       </QuerySearchProvider>
     </Stack>
   )
