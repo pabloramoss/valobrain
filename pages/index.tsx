@@ -40,6 +40,9 @@ const IndexRoute: React.FC<Props> = ({videosDB})=> {
     <Grid 
       gridTemplateAreas={{
         base: `
+        "header header" 
+        "body body"`, 
+        sm: `
         "aside header" 
         "aside body"` 
         }} 
@@ -53,11 +56,11 @@ const IndexRoute: React.FC<Props> = ({videosDB})=> {
       </Box>
       <Stack gridArea="body">
         <Body />
-        <form onSubmit={(e)=>handleSubmit(e)}>
+{/*         <form onSubmit={(e)=>handleSubmit(e)}>
           <Input placeholder='Query' onChange={e=>setQuery(e.target.value)} />
           <Button type='submit'>Consultar</Button>
         </form>
-        <Text>{JSON.stringify(data)}</Text>
+        <Text>{JSON.stringify(data)}</Text> */}
       </Stack>
     </Grid>
   )

@@ -31,12 +31,13 @@ const asideVariants = {
 }
 
   return(
-    <MotionStack 
+    <Stack 
       bg="gray.600" 
       h="100vh" 
-      pos="fixed"
+      display={{base: "none", sm:"flex"}}
+/*       pos="fixed"
       animate={open}
-      variants={asideVariants}
+      variants={asideVariants} */
 
     >
       <Icon ms={4} mt={8} /* ref={btnRef} */ _hover={{cursor:"pointer"}} as={FaBars} color="white" alignSelf="start" h={7} w={7} onClick={()=> cycleOpen()} />
@@ -51,7 +52,7 @@ const asideVariants = {
           <Text color="gray.500">©{new Date().getFullYear()} Valobrain</Text>
         </Stack>
       </Stack>
-    </MotionStack>
+    </Stack>
   )
 }
 
