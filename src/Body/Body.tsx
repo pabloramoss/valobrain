@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import {Stack} from "@chakra-ui/react"
 import Hero from "../Hero/Hero"
 import VideoList from './VideoList/VideoList';
-import LatestVideos from './LatestVideos';
 import VideosContext from '../../context/VideosContext';
 import RecentVideos from './RecentVideos';
 
