@@ -4,13 +4,14 @@ import Hero from "../Hero/Hero"
 import VideoList from './VideoList/VideoList';
 import LatestVideos from './LatestVideos';
 import VideosContext from '../../context/VideosContext';
+import RecentVideos from './RecentVideos';
 
 const Body = ()=> {
   const {videos} = useContext(VideosContext)
   console.log(videos)
 
   return(
-    <Stack bg='gray.800' alignItems="center"pt={50} overflowY="auto"     sx={{
+    <Stack bg='gray.800' alignItems="center" overflowY="auto" sx={{
       '&::-webkit-scrollbar': {
         width: '8px',
         borderRadius: '8px',
@@ -29,7 +30,7 @@ const Body = ()=> {
         {(videos.length)?
           <VideoList />
           :
-          <LatestVideos />
+          <RecentVideos />
       }
     </Stack>
   )

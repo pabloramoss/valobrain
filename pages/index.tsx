@@ -43,17 +43,17 @@ const IndexRoute: React.FC<Props> = ({videosDB})=> {
         "header header" 
         "body body"`, 
         sm: `
-        "aside header" 
-        "aside body"` 
+        "header header" 
+        "body body"` 
         }} 
         gridTemplateColumns={{base:"60px 1fr"}} gridTemplateRows={{base: "60px 1fr"}}
       >
       <Box gridArea="header">
         <Searchbar />
       </Box>
-      <Box gridArea="aside">
+{/*       <Box gridArea="aside">
         <Aside />
-      </Box>
+      </Box> */}
       <Stack gridArea="body">
         <Body />
 {/*         <form onSubmit={(e)=>handleSubmit(e)}>

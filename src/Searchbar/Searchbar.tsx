@@ -23,6 +23,7 @@ const Searchbar: React.FC = ()=> {
       bg="gray.800" 
       pos="fixed" 
       w="100%"
+      zIndex={20}
     >
       <Container maxW="container.xl">
         <form onSubmit={handleSubmit}>

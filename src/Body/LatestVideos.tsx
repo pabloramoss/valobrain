@@ -5,12 +5,14 @@ import VideoCard from './VideoCard';
 const LatestVideos: React.FC = ()=> {
 
   return(
-    <Stack>
-      <Heading fontSize={20} opacity={0.6} color="white">Más recientes</Heading>
-      <Stack gap={5} direction="row" h="600px">
-        <VideoCard />
-        <VideoCard />
-        <VideoCard />
+    <Stack py={55}>
+      <Stack>
+        <Heading fontSize={20} opacity={0.6} color="white">Más recientes</Heading>
+        <Stack gap={5} direction="row">
+          <VideoCard />
+          <VideoCard />
+          <VideoCard />
+        </Stack>
       </Stack>
     </Stack>
   )

@@ -14,12 +14,12 @@ const getDataFromYT = async (query) =>{
 
 const newObjVideo = (objVideo) => {
   const video = {
+    etag: objVideo.etag,
     videoId: objVideo.id.videoId,
-    title: objVideo.snippet.title,
     description: objVideo.snippet.description,
     publishTime: objVideo.snippet.publishTime,
     thumbnails: objVideo.snippet.thumbnails.medium.url,
-    etag: objVideo.etag,
+    title: objVideo.snippet.title,
   }
   return video
 }

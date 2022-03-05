@@ -1,6 +1,6 @@
 export interface Video {
-  videoId: string;
   etag: string;
+  videoId: string;
   description: string;
   thumbnails: string;
   publishTime: string;
