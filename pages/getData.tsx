@@ -59,6 +59,10 @@ const getVideosYT = async (e)=>{
   setVideosYT(resultsParse)
 }
 
+const getNewVideos = ()=> {
+  const newVideos = videosYT.filter(video => video.etag === )
+}
+
 useEffect(()=>{
   console.log("videos mongo: ",videosMongo)
   console.log("videos YT: ",videosYT)
@@ -73,13 +77,14 @@ useEffect(()=>{
       <form onSubmit={getVideosYT}>
         <Input type="text" onChange={(e)=>setQuery(e.target.value)} />
         <Button type='submit'>Obtener videos de youtube</Button>
+        <Button onClick={getNewVideos}>Filtrar nuevos videos</Button>
       </form>
     </Stack>
   )
 }
 export default getData
 
-//Obtengo los videos
+//Obtengo los videos de mongo
 export const getStaticProps: GetStaticProps = async () =>{
   /* const videosDB = await api.mock.list() */
   const videosDB = await api.list()
