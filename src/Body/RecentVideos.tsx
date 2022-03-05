@@ -15,7 +15,7 @@ const RecentVideos: React.FC = ()=> {
         <Icon w={4} h={4} color="white" opacity={0.3} as={FaChevronLeft} />
         <Icon w={4} h={4} color="white" opacity={0.3} as={FaChevronRight} />
       </Stack>
-      <Container gap={5} h="450px" minW={["260px","260px","260px","260px"]} maxW="container.md" overflowX="auto" sx={{
+      <Container gap={5} h="450px" minW={["260px","260px","260px","260px"]} maxW="container.lg" overflowX="auto" sx={{
         '&::-webkit-scrollbar': {
           backgroundColor: `rgba(0, 0, 0, 0.00)`,
         },

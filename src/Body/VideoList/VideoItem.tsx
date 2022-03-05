@@ -42,18 +42,18 @@ const VideoItem = ({video}) => {
             >{video.title}</Heading>
             <Text fontSize="sm" color="gray.400" display={{base:"none", md:"flex"}}>{video.description}</Text>
           </Stack>
-            <Modal isOpen={isOpen} onClose={onClose}>
-          <ModalOverlay />
-          <ModalContent maxW="940px" pb="15px">
-            <ModalHeader fontSize="lg">{video.title}</ModalHeader>
-            <ModalCloseButton />
-            <ModalBody>
-              <AspectRatio ratio={16 / 9}>
-                <iframe src={videoSrc} allowFullScreen title="Video player" />
-              </AspectRatio>
-            </ModalBody>
-          </ModalContent>
-        </Modal>
+          <Modal isOpen={isOpen} onClose={onClose}>
+            <ModalOverlay />
+            <ModalContent maxW="940px" pb="15px">
+              <ModalHeader fontSize="lg">{video.title}</ModalHeader>
+              <ModalCloseButton />
+              <ModalBody>
+                <AspectRatio ratio={16 / 9}>
+                  <iframe src={videoSrc} allowFullScreen title="Video player" />
+                </AspectRatio>
+              </ModalBody>
+            </ModalContent>
+          </Modal>
         </Stack>
     )
 };
