@@ -1,5 +1,5 @@
 import { createContext, useState } from "react"
-import {Video} from "../src/videos/types"
+import {VideoI} from "../src/videos/types"
 
 const DatabaseContext = createContext(null)
 
