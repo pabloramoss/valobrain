@@ -1,6 +1,6 @@
-import {Video} from "../videos/types"
+import {VideoI} from "../videos/types"
 
-const objectVideo: Video = {
+const objectVideo: VideoI = {
   etag: "qSApgLa9Qqh_47Q9Q-kQLfF1zmE",
   videoId: "qhyKjS6qZco",
   description: "Micro strat sacada de Challengers 2021 Torreta en under heaven, nano ejambre en puerta y en servidor al contact de la torreta.",
@@ -9,7 +9,7 @@ const objectVideo: Video = {
   title: "Valorant Micro defensa SAW Ascent A site Killjoy Setup",
 }
 
-const postData = async (video: Video) => {
+const postData = async (video: VideoI) => {
   try {
     console.log("este video llega a postData ",video)
     const res = await fetch("/api/database", {

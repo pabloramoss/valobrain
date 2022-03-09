@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
 import VideosContext from '../../context/VideosContext';
-import {Video} from "../videos/types"
+import {VideoI} from "../videos/types"
 
 interface Props {
-  videos: Video[]
+  videos: VideoI[]
 }
 
 const Filterbar: React.FC<Props> = ()=> {

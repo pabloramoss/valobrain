@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import VideosContext from '../../context/VideosContext';
 import QuerySearchContext from '../../context/QueryContext';
 import {Button} from "@chakra-ui/react"
-import {Video} from "../videos/types"
+import {VideoI} from "../videos/types"
 import searchFuse from "../Searchbar/SearchFuse"
 import Fuse from "fuse.js";
 import config from "../config"

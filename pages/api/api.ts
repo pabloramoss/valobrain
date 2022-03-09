@@ -1,13 +1,13 @@
 import axios from "axios";
-import { Video } from "../../src/videos/types";
+import { VideoI } from "../../src/videos/types";
 
 export default {
-  list: async (): Promise<Video[]> => {
+  list: async (): Promise<VideoI[]> => {
     return axios
     .get("http://localhost:3000/api/database").then(response => response.data)
   },
   mock:{
-    list: (): Video[] =>
+    list: (): VideoI[] =>
     ([
       {
         videoId: 'EMAQhGtOXxA',

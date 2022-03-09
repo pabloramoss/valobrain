@@ -1,4 +1,4 @@
-export interface Video {
+export interface VideoI {
   etag: string;
   videoId: string;
   description: string;

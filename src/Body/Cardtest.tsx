@@ -1,10 +1,10 @@
 import { Heading, Stack, Image, Badge, Flex, Icon, Text, useDisclosure, AspectRatio, Modal, ModalBody, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay } from '@chakra-ui/react';
 import React from 'react';
 import { FaClock } from "react-icons/fa"
-import {Video} from "../videos/types"
+import {VideoI} from "../videos/types"
 
 interface Props {
-  video: Video;
+  video: VideoI;
 }
 const Cardtest: React.FC<Props> = ({video})=> {
   const { isOpen, onOpen, onClose } = useDisclosure();

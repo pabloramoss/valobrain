@@ -1,20 +1,15 @@
 import { GetStaticProps } from 'next';
 import React, {useContext, useEffect, useState} from 'react';
-import {Video} from "../src/videos/types"
-import api from './api/api';
-import {Container, Heading, Stack, Grid, Box, Input, Button, Text} from "@chakra-ui/react"
-import Aside from "../src/Aside/Aside"
+import {VideoI} from "../src/videos/types"
+import {Stack, Grid, Box} from "@chakra-ui/react"
 import Searchbar from "../src/Searchbar/Searchbar"
 import Body from "../src/Body/Body"
-import VideosContext from "../context/VideosContext"
 import DatabaseContext from "../context/DatabaseContext"
-import Fuse from "fuse.js";
 import {dbConnect} from "../utils/mongoose"
-/* import {collection, onSnapshot, query, orderBy} from "@firebase/firestore"
-import {db} from "../firebase" */
-import {getDataFromYT, newObjVideo} from "../src/Youtube/getDataFromYT"
+import Video from "../models/Video"
+import {getDataFromYT} from "../src/Youtube/getDataFromYT"
 interface Props {
-  videosDB: Video[];
+  videosDB: VideoI[];
 }
 
 const IndexRoute: React.FC<Props> = ({videosDB})=> {
@@ -51,30 +46,27 @@ const IndexRoute: React.FC<Props> = ({videosDB})=> {
       <Box gridArea="header">
         <Searchbar />
       </Box>
-{/*       <Box gridArea="aside">
-        <Aside />
-      </Box> */}
       <Stack gridArea="body">
         <Body />
-{/*         <form onSubmit={(e)=>handleSubmit(e)}>
-          <Input placeholder='Query' onChange={e=>setQuery(e.target.value)} />
-          <Button type='submit'>Consultar</Button>
-        </form>
-        <Text>{JSON.stringify(data)}</Text> */}
       </Stack>
     </Grid>
   )
 }
 export default IndexRoute
 
-//Obtengo los videos
 export const getStaticProps: GetStaticProps = async () =>{
-  /* const videosDB = await api.mock.list() */
-  const videosDB = await api.list()
-  dbConnect()
+  await dbConnect()
 
-  return {
-    props: {
+  //Obtengo los video
+  const result = await Video.find({})
+  const videosDB = result.map((doc) => {
+    const video = doc.toObject()
+    video._id = video._id.toString()
+    return video
+  })
+
+  return { 
+    props: { 
       videosDB
     }
   }

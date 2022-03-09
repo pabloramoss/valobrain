@@ -3,13 +3,13 @@ import {Button, Input, Stack, Flex, Divider} from "@chakra-ui/react"
 import axios from "axios"
 import youtube from "../src/Youtube/youtube"
 import {getDataFromYT, newObjVideo} from "../src/Youtube/getDataFromYT"
-import {Video} from '../src/videos/types';
+import {VideoI} from '../src/videos/types';
 import postData from '../src/Youtube/postData';
 import {dbConnect} from "../utils/mongoose"
 import api from './api/api';
 import { GetStaticProps } from 'next';
 
-const initialStateVideo: Video = {
+const initialStateVideo: VideoI = {
   etag: "",
   videoId: "",
   description: "",
@@ -18,18 +18,18 @@ const initialStateVideo: Video = {
   title: "",
 }
 interface Props {
-  videosDB: Video[];
+  videosDB: VideoI[];
 }
 
 const getData: React.FC<Props> = ({videosDB})=> {
-  const [videosYT, setVideosYT] = useState<Video[]>([])
-  const [videosMongo, setVideosMongo] = useState<Video[]>([])
+  const [videosYT, setVideosYT] = useState<VideoI[]>([])
+  const [videosMongo, setVideosMongo] = useState<VideoI[]>([])
   const [query, setQuery] = useState("")
   useEffect(()=>{
     setVideosMongo(videosDB)
   },[])
 
-  const objectVideo: Video = {
+  const objectVideo: VideoI = {
     etag: "qSApgLa9Qqh_47Q9Q-kQLfF1zmE",
     videoId: "qhyKjS6qZco",
     description: "Micro strat sacada de Challengers 2021 Torreta en under heaven, nano ejambre en puerta y en servidor al contact de la torreta.",

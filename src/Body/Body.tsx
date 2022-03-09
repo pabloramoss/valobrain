@@ -10,17 +10,7 @@ const Body = ()=> {
   console.log(videos)
 
   return(
-    <Stack bg='gray.800' alignItems="center" overflowY="auto" sx={{
-      '&::-webkit-scrollbar': {
-        width: '8px',
-        borderRadius: '8px',
-        backgroundColor: `rgba(0, 0, 0, 0.05)`,
-      },
-      '&::-webkit-scrollbar-thumb': {
-        borderRadius: '8px',
-        backgroundColor: `rgba(172, 172, 172, 0.2)`,
-      },
-    }}>
+    <Stack bg='gray.800' alignItems="center">
       {(videos.length)?
           <></>
           :
