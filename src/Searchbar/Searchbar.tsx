@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect, FormEvent, ChangeEvent } from 'react';
+import React, { useState, useContext, FormEvent, ChangeEvent } from 'react';
 import {Container, Input, Stack, Button} from "@chakra-ui/react"
 import { FaSearch } from 'react-icons/fa';
 import searchFuse from "../Searchbar/SearchFuse"
